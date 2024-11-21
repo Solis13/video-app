@@ -1,0 +1,23 @@
+{% extends 'video_collection/base.html' %}
+
+{% block content %}
+
+<h2>{{ video.name }}</h2>
+
+<div>
+    {% if video %}
+        <h3>Notes</h3>
+        <p>{{ video.notes|default:'No Notes' }}</p>
+        
+        <h3>Included Video</h3>
+        <iframe width="560" height="315" src="https://youtube.com/embed/{{ video.video_id }}"></iframe>
+
+        <h3>Video URL</h3>
+        <p><a href="{{ video.url }}">{{ video.url }}</a></p>
+
+    {% else %}
+        <p>This video does not exist in the database.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
